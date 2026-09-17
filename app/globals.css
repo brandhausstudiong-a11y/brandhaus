@@ -5,6 +5,12 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+    /* Brand palette */
+    --color-shadow-grey: var(--brand-shadow-grey);
+    --color-tiger-flame: var(--brand-tiger-flame);
+    --color-parchment: var(--brand-parchment);
+    --color-brand-white: var(--brand-white);
+
     --font-heading: var(--font-sans);
     --font-sans: var(--font-sans);
     --color-sidebar-ring: var(--sidebar-ring);
@@ -48,29 +54,40 @@
 }
 
 :root {
-    --background: oklch(1 0 0);
-    --foreground: oklch(0.145 0 0);
-    --card: oklch(1 0 0);
-    --card-foreground: oklch(0.145 0 0);
-    --popover: oklch(1 0 0);
-    --popover-foreground: oklch(0.145 0 0);
-    --primary: oklch(0.205 0 0);
-    --primary-foreground: oklch(0.985 0 0);
-    --secondary: oklch(0.97 0 0);
-    --secondary-foreground: oklch(0.205 0 0);
-    --muted: oklch(0.97 0 0);
-    --muted-foreground: oklch(0.556 0 0);
-    --accent: oklch(0.97 0 0);
-    --accent-foreground: oklch(0.205 0 0);
+    /* Brand palette */
+    --brand-shadow-grey: #211F20;
+    --brand-tiger-flame: #FD572A;
+    --brand-parchment: #F2EFEB;
+    --brand-white: #FFFFFF;
+
+    /* Semantic theme colors */
+    --background: var(--brand-parchment);
+    --foreground: var(--brand-shadow-grey);
+    --card: var(--brand-white);
+    --card-foreground: var(--brand-shadow-grey);
+    --popover: var(--brand-white);
+    --popover-foreground: var(--brand-shadow-grey);
+
+    --primary: var(--brand-tiger-flame);
+    --primary-foreground: var(--brand-white);
+
+    --secondary: var(--brand-shadow-grey);
+    --secondary-foreground: var(--brand-white);
+
+    --muted: var(--brand-parchment);
+    --muted-foreground: var(--brand-shadow-grey);
+
+    --accent: var(--brand-tiger-flame);
+    --accent-foreground: var(--brand-white);
     --destructive: oklch(0.577 0.245 27.325);
-    --border: oklch(0.922 0 0);
-    --input: oklch(0.922 0 0);
-    --ring: oklch(0.708 0 0);
-    --chart-1: oklch(0.87 0 0);
-    --chart-2: oklch(0.556 0 0);
-    --chart-3: oklch(0.439 0 0);
-    --chart-4: oklch(0.371 0 0);
-    --chart-5: oklch(0.269 0 0);
+    --border: color-mix(in srgb, var(--brand-shadow-grey) 15%, transparent);
+    --input: color-mix(in srgb, var(--brand-shadow-grey) 20%, transparent);
+    --ring: var(--brand-tiger-flame);
+    --chart-1: var(--brand-tiger-flame);
+    --chart-2: var(--brand-shadow-grey);
+    --chart-3: #8F8A87;
+    --chart-4: #C8C2BC;
+    --chart-5: #5C5755;
     --radius: 0.625rem;
     --sidebar: oklch(0.985 0 0);
     --sidebar-foreground: oklch(0.145 0 0);
@@ -83,37 +100,46 @@
 }
 
 .dark {
-    --background: oklch(0.145 0 0);
-    --foreground: oklch(0.985 0 0);
-    --card: oklch(0.205 0 0);
-    --card-foreground: oklch(0.985 0 0);
-    --popover: oklch(0.205 0 0);
-    --popover-foreground: oklch(0.985 0 0);
-    --primary: oklch(0.922 0 0);
-    --primary-foreground: oklch(0.205 0 0);
-    --secondary: oklch(0.269 0 0);
-    --secondary-foreground: oklch(0.985 0 0);
-    --muted: oklch(0.269 0 0);
-    --muted-foreground: oklch(0.708 0 0);
-    --accent: oklch(0.269 0 0);
-    --accent-foreground: oklch(0.985 0 0);
+    --background: var(--brand-shadow-grey);
+    --foreground: var(--brand-white);
+
+    --card: #2B2929;
+    --card-foreground: var(--brand-white);
+
+    --popover: #2B2929;
+    --popover-foreground: var(--brand-white);
+
+    --primary: var(--brand-tiger-flame);
+    --primary-foreground: var(--brand-white);
+
+    --secondary: #3A3737;
+    --secondary-foreground: var(--brand-white);
+
+    --muted: #3A3737;
+    --muted-foreground: #D8D3CF;
+
+    --accent: var(--brand-tiger-flame);
+    --accent-foreground: var(--brand-white);
+
     --destructive: oklch(0.704 0.191 22.216);
-    --border: oklch(1 0 0 / 10%);
-    --input: oklch(1 0 0 / 15%);
-    --ring: oklch(0.556 0 0);
-    --chart-1: oklch(0.87 0 0);
-    --chart-2: oklch(0.556 0 0);
-    --chart-3: oklch(0.439 0 0);
-    --chart-4: oklch(0.371 0 0);
-    --chart-5: oklch(0.269 0 0);
-    --sidebar: oklch(0.205 0 0);
-    --sidebar-foreground: oklch(0.985 0 0);
-    --sidebar-primary: oklch(0.488 0.243 264.376);
-    --sidebar-primary-foreground: oklch(0.985 0 0);
-    --sidebar-accent: oklch(0.269 0 0);
-    --sidebar-accent-foreground: oklch(0.985 0 0);
-    --sidebar-border: oklch(1 0 0 / 10%);
-    --sidebar-ring: oklch(0.556 0 0);
+    --border: rgba(255, 255, 255, 0.10);
+    --input: rgba(255, 255, 255, 0.15);
+    --ring: var(--brand-tiger-flame);
+
+    --chart-1: var(--brand-tiger-flame);
+    --chart-2: var(--brand-parchment);
+    --chart-3: #8F8A87;
+    --chart-4: #C8C2BC;
+    --chart-5: #5C5755;
+
+    --sidebar: #2B2929;
+    --sidebar-foreground: var(--brand-white);
+    --sidebar-primary: var(--brand-tiger-flame);
+    --sidebar-primary-foreground: var(--brand-white);
+    --sidebar-accent: #3A3737;
+    --sidebar-accent-foreground: var(--brand-white);
+    --sidebar-border: rgba(255, 255, 255, 0.10);
+    --sidebar-ring: var(--brand-tiger-flame);
 }
 
 @layer base {
@@ -126,4 +152,74 @@
   html {
     @apply font-sans;
     }
+}
+
+
+/* ============================================================
+   BrandHaus — Hero Animations
+============================================================ */
+
+@keyframes hero-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes hero-image-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-reveal {
+  opacity: 0;
+  animation: hero-reveal 700ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-reveal-delay-1 {
+  animation-delay: 100ms;
+}
+
+.hero-reveal-delay-2 {
+  animation-delay: 180ms;
+}
+
+.hero-reveal-delay-3 {
+  animation-delay: 320ms;
+}
+
+.hero-reveal-delay-4 {
+  animation-delay: 420ms;
+}
+
+.hero-image-reveal {
+  opacity: 0;
+  animation: hero-image-reveal 800ms cubic-bezier(0.16, 1, 0.3, 1) 250ms
+    forwards;
+}
+
+.hero-image-delay-2 {
+  animation-delay: 400ms;
+}
+
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .hero-reveal,
+  .hero-image-reveal {
+    opacity: 1;
+    animation: none;
+    transform: none;
+  }
 }
