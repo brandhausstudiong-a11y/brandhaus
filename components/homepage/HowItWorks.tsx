@@ -164,17 +164,17 @@ export default function HowItWorks() {
                     damping: 25,
                   }}
                 >
-                  <Link
-                    href="https://wa.me/2347048000567"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={buttonVariants({
-                      className:
-                        "h-8 rounded-none border border-white/60 bg-transparent px-4 text-[14px] font-medium text-brand-white hover:bg-brand-white hover:text-shadow-grey",
-                    })}
-                  >
-                    WhatsApp
-                  </Link>
+                  <a
+                  href={process.env.NEXT_PUBLIC_WHATSAPP_URL ?? "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={buttonVariants({
+                    className:
+                      "h-8 rounded-none border border-white/60 bg-transparent px-4 text-[14px] font-medium text-brand-white hover:bg-brand-white hover:text-shadow-grey",
+                  })}
+                >
+                  WhatsApp
+                </a>
                 </motion.div>
 
                 <motion.div
@@ -185,8 +185,8 @@ export default function HowItWorks() {
                     damping: 25,
                   }}
                 >
-                  <Link
-                    href="https://instagram.com/brandhauzstudio"
+                  <a
+                    href={process.env.NEXT_PUBLIC_INSTAGRAM_URL ?? "#"}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group flex h-8 items-center gap-1 px-1 text-[14px] font-medium text-white/80 hover:text-brand-white"
@@ -194,11 +194,11 @@ export default function HowItWorks() {
                     Instagram
 
                     <ArrowRight
-                      size={11}
+                      size={13}
                       strokeWidth={1.5}
                       className="transition-transform duration-200 group-hover:translate-x-0.5"
                     />
-                  </Link>
+                  </a>
                 </motion.div>
               </motion.div>
             </motion.div>

@@ -12,15 +12,15 @@ import {
 const socialLinks = [
   {
     label: "Instagram",
-    href: "https://instagram.com/brandhauzstudio",
+    href: process.env.NEXT_PUBLIC_INSTAGRAM_URL,
   },
   {
     label: "TikTok",
-    href: "https://tiktok.com/@brandhauzstudio",
+    href: process.env.NEXT_PUBLIC_TIKTOK_URL,
   },
   {
     label: "WhatsApp",
-    href: "https://wa.me/2347048000567",
+    href: process.env.NEXT_PUBLIC_WHATSAPP_URL,
   },
 ];
 
@@ -166,22 +166,14 @@ const Footer = () => {
                       }}
                       className="flex items-center gap-1.5"
                     >
-                      <Link
-                        href={link.href}
-                        target={
-                          link.href.startsWith("http")
-                            ? "_blank"
-                            : undefined
-                        }
-                        rel={
-                          link.href.startsWith("http")
-                            ? "noopener noreferrer"
-                            : undefined
-                        }
+                      <a
+                        href={link.href ?? "#"}
+                        target={link.href ? "_blank" : undefined}
+                        rel={link.href ? "noopener noreferrer" : undefined}
                         className="transition-colors hover:text-tiger-flame"
                       >
                         {link.label}
-                      </Link>
+                      </a>
 
                       {index < socialLinks.length - 1 && (
                         <span aria-hidden="true">|</span>
@@ -220,20 +212,24 @@ const Footer = () => {
                     damping: 25,
                   }}
                 >
-                  <Link
-                    href="https://wa.me/2347048000567"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group mt-6 inline-flex h-9 items-center gap-2 border border-shadow-grey bg-transparent px-4 text-sm font-medium transition-colors hover:bg-shadow-grey hover:text-brand-white"
-                  >
-                    Chat us on WhatsApp
+                  <a
+                  href={process.env.NEXT_PUBLIC_WHATSAPP_URL ?? "#"}
+                  target={process.env.NEXT_PUBLIC_WHATSAPP_URL ? "_blank" : undefined}
+                  rel={
+                    process.env.NEXT_PUBLIC_WHATSAPP_URL
+                      ? "noopener noreferrer"
+                      : undefined
+                  }
+                  className="group mt-6 inline-flex h-9 items-center gap-2 border border-shadow-grey bg-transparent px-4 text-sm font-medium transition-colors hover:bg-shadow-grey hover:text-brand-white"
+                >
+                  Chat us on WhatsApp
 
-                    <ArrowUpRight
-                      size={13}
-                      strokeWidth={1.5}
-                      className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-                    />
-                  </Link>
+                  <ArrowUpRight
+                    size={13}
+                    strokeWidth={1.5}
+                    className="transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  />
+                </a>
                 </motion.div>
               </motion.div>
 

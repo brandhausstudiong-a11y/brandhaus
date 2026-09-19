@@ -111,17 +111,17 @@ export default function StartProject() {
                     damping: 25,
                   }}
                 >
-                  <Link
-                    href="https://instagram.com/brandhauzstudio"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={buttonVariants({
-                      className:
-                        "h-9 rounded-none bg-tiger-flame px-5 text-sm font-medium text-brand-white hover:bg-tiger-flame/90",
-                    })}
-                  >
-                    Instagram
-                  </Link>
+                <a
+                  href={process.env.NEXT_PUBLIC_INSTAGRAM_URL ?? "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={buttonVariants({
+                    className:
+                      "h-9 rounded-none bg-tiger-flame px-5 text-sm font-medium text-brand-white hover:bg-tiger-flame/90",
+                  })}
+                >
+                  Instagram
+                </a>
                 </motion.div>
 
                 {/* WhatsApp */}
@@ -134,18 +134,18 @@ export default function StartProject() {
                     damping: 25,
                   }}
                 >
-                  <a
-                    href="https://wa.me/2347048000567"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className={buttonVariants({
-                      variant: "outline",
-                      className:
-                        "h-9 rounded-none border-white/60 bg-transparent px-5 text-sm font-medium text-brand-white hover:bg-brand-white hover:text-shadow-grey",
-                    })}
-                  >
-                    WhatsApp
-                  </a>
+                <a
+                  href={process.env.NEXT_PUBLIC_WHATSAPP_URL ?? "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={buttonVariants({
+                    variant: "outline",
+                    className:
+                      "h-9 rounded-none border-white/60 bg-transparent px-5 text-sm font-medium text-brand-white hover:bg-brand-white hover:text-shadow-grey",
+                  })}
+                >
+                  WhatsApp
+                </a>
                 </motion.div>
               </motion.div>
             </motion.div>

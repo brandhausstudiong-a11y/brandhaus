@@ -137,17 +137,17 @@ export default function BrandDifference() {
                       damping: 25,
                     }}
                   >
-                    <Link
-                      href="https://wa.me/2347048000567"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={buttonVariants({
-                        className:
-                          "h-9 rounded-none border border-shadow-grey bg-transparent px-4 text-sm font-medium text-shadow-grey hover:bg-shadow-grey hover:text-brand-white",
-                      })}
-                    >
-                      WhatsApp
-                    </Link>
+                  <a
+                  href={process.env.NEXT_PUBLIC_WHATSAPP_URL ?? "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={buttonVariants({
+                    className:
+                      "h-9 rounded-none border border-shadow-grey bg-transparent px-4 text-sm font-medium text-shadow-grey hover:bg-shadow-grey hover:text-brand-white",
+                  })}
+                >
+                  WhatsApp
+                </a>
                   </motion.div>
 
                   <motion.div
@@ -158,20 +158,20 @@ export default function BrandDifference() {
                       damping: 25,
                     }}
                   >
-                    <Link
-                      href="https://instagram.com/brandhauzstudio"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group flex h-9 items-center gap-1 px-1 text-sm font-medium text-shadow-grey"
-                    >
-                      Instagram
+                  <a
+                    href={process.env.NEXT_PUBLIC_INSTAGRAM_URL ?? "#"}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex h-9 items-center gap-1 px-1 text-sm font-medium text-shadow-grey"
+                  >
+                    Instagram
 
-                      <ArrowRight
-                        size={13}
-                        strokeWidth={1.5}
-                        className="transition-transform duration-200 group-hover:translate-x-1"
-                      />
-                    </Link>
+                    <ArrowRight
+                      size={13}
+                      strokeWidth={1.5}
+                      className="transition-transform duration-200 group-hover:translate-x-1"
+                    />
+                  </a>
                   </motion.div>
                 </div>
               </motion.div>

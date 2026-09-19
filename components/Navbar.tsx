@@ -257,7 +257,7 @@ export default function Navbar() {
 
                 <motion.a
                   variants={desktopLinkVariants}
-                  href="https://wa.me/2347048000567"
+                  href={process.env.NEXT_PUBLIC_WHATSAPP_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ y: -1 }}
@@ -282,7 +282,7 @@ export default function Navbar() {
 
                 <motion.a
                   variants={desktopLinkVariants}
-                  href="https://instagram.com/brandhauzstudio"
+                  href={process.env.NEXT_PUBLIC_INSTAGRAM_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ y: -1 }}
@@ -307,7 +307,7 @@ export default function Navbar() {
 
                 <motion.a
                   variants={desktopLinkVariants}
-                  href="https://tiktok.com/@brandhauzstudio"
+                  href={process.env.NEXT_PUBLIC_TIKTOK_URL}
                   target="_blank"
                   rel="noopener noreferrer"
                   whileHover={{ y: -1 }}
@@ -493,7 +493,7 @@ export default function Navbar() {
                 <div className="mb-6 flex items-center gap-4">
 
                   <a
-                    href="https://instagram.com/brandhauzstudio"
+                    href={process.env.NEXT_PUBLIC_INSTAGRAM_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Instagram"
@@ -503,7 +503,7 @@ export default function Navbar() {
                   </a>
 
                   <a
-                    href="https://tiktok.com/@brandhauzstudio"
+                    href={process.env.NEXT_PUBLIC_TIKTOK_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="TikTok"
@@ -513,7 +513,7 @@ export default function Navbar() {
                   </a>
 
                   <a
-                    href="https://wa.me/2347048000567"
+                    href={process.env.NEXT_PUBLIC_WHATSAPP_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-[11px] font-semibold transition-colors hover:text-tiger-flame"

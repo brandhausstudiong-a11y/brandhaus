@@ -96,7 +96,7 @@ export default function Hero() {
 
                 <div className="mt-5 flex items-center gap-2">
                   <motion.a
-                    href="https://instagram.com/brandhauzstudio"
+                    href={process.env.NEXT_PUBLIC_INSTAGRAM_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ y: -2 }}
@@ -115,7 +115,7 @@ export default function Hero() {
                   </motion.a>
 
                   <motion.a
-                    href="https://wa.me/2347048000567"
+                    href={process.env.NEXT_PUBLIC_WHATSAPP_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ y: -2 }}
