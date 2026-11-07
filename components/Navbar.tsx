@@ -3,41 +3,38 @@
 import Image from "next/image";
 import * as React from "react";
 import Link from "next/link";
-import {
-  Menu,
-  X,
-  ArrowUpRight,
-} from "lucide-react";
+import { Menu, X, ArrowUpRight } from "lucide-react";
 import {
   motion,
   MotionConfig,
   type Variants,
 } from "motion/react";
-
+import { selectCartCount } from "@/lib/features/cart/cartSelectors";
+import { useAppSelector } from "@/lib/hooks";
 /* ============================================================
    NAVIGATION
 ============================================================ */
 
 const navigation = [
   {
-    label: "What we do",
-    href: "/#what-we-do",
+    label: "Shop",
+    href: "/shop",
   },
   {
-    label: "Difference",
-    href: "/#difference",
+    label: "Stickers",
+    href: "/shop?category=spice-jar-stickers",
   },
   {
     label: "How it works",
     href: "/#how-it-works",
   },
   {
-    label: "Industries",
-    href: "/#industries",
-  },
-  {
     label: "Contact",
     href: "/#contact",
+  },
+  {
+    label: "Cart",
+    href: "/cart",
   },
 ];
 
@@ -190,6 +187,8 @@ const mobileBottomVariants: Variants = {
 export default function Navbar() {
   const [isOpen, setIsOpen] = React.useState(false);
 
+  const totalCartItems = useAppSelector(selectCartCount);
+
   /* Prevent body scrolling while the mobile sidebar is open. */
   React.useEffect(() => {
     if (isOpen) {
@@ -257,9 +256,7 @@ export default function Navbar() {
 
                 <motion.a
                   variants={desktopLinkVariants}
-                  href={process.env.NEXT_PUBLIC_WHATSAPP_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/shop"
                   whileHover={{ y: -1 }}
                   transition={{
                     type: "spring",
@@ -268,7 +265,7 @@ export default function Navbar() {
                   }}
                   className="text-[14px] font-medium text-white/90 transition-colors hover:text-tiger-flame"
                 >
-                  WhatsApp
+                  Shop
                 </motion.a>
 
                 <motion.span
@@ -282,9 +279,7 @@ export default function Navbar() {
 
                 <motion.a
                   variants={desktopLinkVariants}
-                  href={process.env.NEXT_PUBLIC_INSTAGRAM_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/shop?category=spice-jar-stickers"
                   whileHover={{ y: -1 }}
                   transition={{
                     type: "spring",
@@ -293,7 +288,7 @@ export default function Navbar() {
                   }}
                   className="text-[14px] font-medium text-white/90 transition-colors hover:text-tiger-flame"
                 >
-                  Instagram
+                  Stickers
                 </motion.a>
 
                 <motion.span
@@ -307,9 +302,7 @@ export default function Navbar() {
 
                 <motion.a
                   variants={desktopLinkVariants}
-                  href={process.env.NEXT_PUBLIC_TIKTOK_URL}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/#contact"
                   whileHover={{ y: -1 }}
                   transition={{
                     type: "spring",
@@ -318,7 +311,35 @@ export default function Navbar() {
                   }}
                   className="text-[14px] font-medium text-white/90 transition-colors hover:text-tiger-flame"
                 >
-                  Tiktok
+                  Contact
+                </motion.a>
+
+                <motion.span
+                  variants={desktopLinkVariants}
+                  className="mx-1 text-[14px] text-white/40"
+                >
+                  |
+                </motion.span>
+                <motion.a
+                  variants={desktopLinkVariants}
+                  href="/cart"
+                  whileHover={{ y: -1 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 400,
+                    damping: 25,
+                  }}
+                  className="text-[14px] font-medium text-white/90 transition-colors hover:text-tiger-flame"
+                >
+                  Cart
+                  { totalCartItems > 0 && (
+                    <span
+                      className="absolute -right-4 -top-2 flex h-3.5 min-w-3.5 items-center justify-center rounded-full bg-black px-1 text-[8px] font-medium leading-none text-white"
+                      aria-label="Cart item count"
+                    >
+                      {totalCartItems}
+                    </span>
+                  )}
                 </motion.a>
               </motion.div>
 
@@ -454,6 +475,14 @@ export default function Navbar() {
                           }}
                         >
                           {item.label}
+                            {item.label === "Cart" && totalCartItems > 0 && (
+                              <span
+                                className="absolute -right-4 -top-2 flex h-3.5 min-w-3.5 items-center justify-center rounded-full bg-black px-1 text-[8px] font-medium leading-none text-white"
+                                aria-label="Cart item count"
+                              >
+                                {totalCartItems}
+                              </span>
+                            )}
                         </motion.span>
 
                         <motion.div

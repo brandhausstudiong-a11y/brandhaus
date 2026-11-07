@@ -3,8 +3,9 @@ import type { Metadata } from "next";
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils";
-import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
+import Providers from "./providers";
+import { StoreProviders } from "./StoreProviders";
+import { Toaster } from "@/components/ui/sonner";
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'})
 
@@ -34,12 +35,25 @@ export default function RootLayout({
       className={cn("antialiased", fontMono.variable, "font-sans", geist.variable)}
     >
       <body>
-        <ThemeProvider>
-          <Navbar />
-            {children}
-          <Footer />
-        </ThemeProvider>
+        <Providers>
+          <ThemeProvider>
+            <StoreProviders>
+              {children}
+              <Toaster />
+            </StoreProviders>
+          </ThemeProvider>
+        </Providers>
       </body>
     </html>
   )
 }
+
+
+        // <Providers>
+        //   <ThemeProvider>
+        //     <StoreProviders>
+        //       {children}
+        //       <Toaster />
+        //     </StoreProviders>
+        //   </ThemeProvider>
+        // </Providers>
